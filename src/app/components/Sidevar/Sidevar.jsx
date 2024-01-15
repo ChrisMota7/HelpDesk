@@ -17,14 +17,13 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import DraftsIcon from '@mui/icons-material/Drafts';
 
 import AssignmentOutlinedIcon from '@mui/icons-material/AssignmentOutlined';
 import LeaderboardOutlinedIcon from '@mui/icons-material/LeaderboardOutlined';
 import Image from "next/image";
 import PendingActionsOutlinedIcon from '@mui/icons-material/PendingActionsOutlined';
 import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
+import AddOutlinedIcon from '@mui/icons-material/AddOutlined';
 
 const drawerWidth = 240;
 
@@ -115,13 +114,19 @@ export default function Sidevar({children}) {
           </IconButton>
         </DrawerHeader>
         <br />
-          <Image
-          src="/LogoNegro.png"
-          alt="Image Componente"
-          className='Image'
-          width={80}
-          height={80}
-          />
+        <ListItem disablePadding>
+
+          <ListItemIcon>
+            <Image
+            src="/LogoNegro.png"
+            alt="Image Componente"
+            className='Image'
+            width={63}
+            height={63}
+            />
+            </ListItemIcon>
+            <ListItemText primary="HELP - DESK" />
+        </ListItem>
         <Divider />
         <List>
           <ListItem disablePadding>
@@ -133,19 +138,28 @@ export default function Sidevar({children}) {
             </ListItemButton>
           </ListItem>
           <ListItem disablePadding>
-            <ListItemButton>
+            <ListItemButton href='/ticket/create-ticket'>
+              <ListItemIcon>
+                <AddOutlinedIcon />
+              </ListItemIcon>
+              <ListItemText primary="Nuevo ticket" />
+            </ListItemButton>
+          </ListItem>
+          <ListItem disablePadding>
+            <ListItemButton href='/ticket/request-ticket'>
+              <ListItemIcon>
+                <PendingActionsOutlinedIcon />
+              </ListItemIcon>
+              <ListItemText primary="Solicitud ticket" />
+            </ListItemButton>
+          </ListItem>
+          <Divider /> 
+          <ListItem disablePadding>
+            <ListItemButton href='/Dashboard'>
               <ListItemIcon>
                 <LeaderboardOutlinedIcon />
               </ListItemIcon>
               <ListItemText primary="Dashboard" />
-            </ListItemButton>
-          </ListItem>
-          <ListItem disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                <PendingActionsOutlinedIcon />
-              </ListItemIcon>
-              <ListItemText primary="SLAS" />
             </ListItemButton>
           </ListItem>
           <Divider />
@@ -157,6 +171,7 @@ export default function Sidevar({children}) {
               <ListItemText primary="Configuración" />
             </ListItemButton>
           </ListItem>
+          <Divider />
         </List>
       </Drawer>
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
