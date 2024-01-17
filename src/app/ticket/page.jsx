@@ -2,7 +2,7 @@
 import './ticket.scss'
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
-import Table from './../components/Table/Table'
+import Table from '../components/Table-Solicitudes/Table'
 import Button from '@mui/material/Button';
 import * as React from 'react';
 import InputLabel from '@mui/material/InputLabel';
@@ -10,10 +10,21 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 
+import Breadcrumbs from '@mui/material/Breadcrumbs';
+import Link from '@mui/material/Link';
+import Typography from '@mui/material/Typography';
 
 export default function ticket({children}) {
     return (
       <div className='header'>
+        <div>
+          <h1>Tickets</h1>
+        </div>
+        <div>
+          <Breadcrumbs aria-label="breadcrumb">
+            <Typography color="text.primary">Tickets</Typography>
+          </Breadcrumbs>
+        </div>
         <Card>
           <CardContent>
             <FormControl fullWidth>

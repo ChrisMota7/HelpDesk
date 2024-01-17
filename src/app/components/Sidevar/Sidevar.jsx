@@ -17,6 +17,7 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
+import { Container } from '@mui/material';
 
 import AssignmentOutlinedIcon from '@mui/icons-material/AssignmentOutlined';
 import LeaderboardOutlinedIcon from '@mui/icons-material/LeaderboardOutlined';
@@ -24,6 +25,7 @@ import Image from "next/image";
 import PendingActionsOutlinedIcon from '@mui/icons-material/PendingActionsOutlined';
 import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
 import AddOutlinedIcon from '@mui/icons-material/AddOutlined';
+import CategoryOutlinedIcon from '@mui/icons-material/CategoryOutlined';
 
 const drawerWidth = 240;
 
@@ -105,95 +107,115 @@ export default function Sidevar({children}) {
   };
 
   return (
-    <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-      <CssBaseline />
-      <Drawer variant="permanent" open={open}>
-        <DrawerHeader>
-          <IconButton onClick={handleDrawerClose}>
-            {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
-          </IconButton>
-        </DrawerHeader>
-        <br />
-        <ListItem disablePadding>
-
-          <ListItemIcon>
-            <Image
-            src="/LogoNegro.png"
-            alt="Image Componente"
-            className='Image'
-            width={63}
-            height={63}
-            />
-            </ListItemIcon>
-            <ListItemText primary="HELP - DESK" />
-        </ListItem>
-        <Divider />
-        <List>
-          <ListItem disablePadding>
-            <ListItemButton href='/ticket'>
-              <ListItemIcon>
-                <AssignmentOutlinedIcon />
-              </ListItemIcon>
-              <ListItemText primary="Tickets"  />
-            </ListItemButton>
-          </ListItem>
-          <ListItem disablePadding>
-            <ListItemButton href='/ticket/create-ticket'>
-              <ListItemIcon>
-                <AddOutlinedIcon />
-              </ListItemIcon>
-              <ListItemText primary="Nuevo ticket" />
-            </ListItemButton>
-          </ListItem>
-          <ListItem disablePadding>
-            <ListItemButton href='/ticket/request-ticket'>
-              <ListItemIcon>
-                <PendingActionsOutlinedIcon />
-              </ListItemIcon>
-              <ListItemText primary="Solicitud ticket" />
-            </ListItemButton>
-          </ListItem>
-          <Divider /> 
-          <ListItem disablePadding>
-            <ListItemButton href='/Dashboard'>
-              <ListItemIcon>
-                <LeaderboardOutlinedIcon />
-              </ListItemIcon>
-              <ListItemText primary="Dashboard" />
-            </ListItemButton>
-          </ListItem>
-          <Divider />
-          <ListItem disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                <SettingsOutlinedIcon />
-              </ListItemIcon>
-              <ListItemText primary="Configuración" />
-            </ListItemButton>
-          </ListItem>
-          <Divider />
-        </List>
-      </Drawer>
-      <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
-        <DrawerHeader />
+      <div className='container'>
+        <CssBaseline />
         <div>
-        <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            onClick={handleDrawerOpen}
-            edge="start"
-            sx={{
-              marginRight: 5,
-              ...(open && { display: 'none' }),
-            }}
-          >
-            <MenuIcon />
-          </IconButton>
-        </div> 
-        <div>   
-        {children}
-        </div>
-      </Box>
-    </Box>
+          <Drawer variant="permanent" open={open}>
+            <div className='container__titleMenu'>
+              <DrawerHeader>
+                <IconButton onClick={handleDrawerClose}>
+                  {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
+                </IconButton>
+              </DrawerHeader>
+              
+                <ListItem disablePadding>
+
+                  <ListItemIcon>
+                    <Image
+                    src="/LogoNegro.png"
+                    alt="Image Componente"
+                    className='Image'
+                    width={63}
+                    height={63}
+                    />
+                  </ListItemIcon>
+                    <h2>HELP-DESK</h2>
+                </ListItem>
+            </div>
+              <Divider />
+              <List>
+              <div className='tickets'>
+                <ListItem disablePadding>
+                  
+                  <ListItemButton href='/ticket'>
+                    <ListItemIcon>
+                      <AssignmentOutlinedIcon />
+                    </ListItemIcon>
+                    <ListItemText primary="Tickets"  />
+                  </ListItemButton>
+                </ListItem>
+                </div>
+
+                <ListItem disablePadding>
+                  <ListItemButton href='/ticket/create-ticket'>
+                    <ListItemIcon>
+                      <AddOutlinedIcon />
+                    </ListItemIcon>
+                    <ListItemText primary="Nuevo ticket" />
+                  </ListItemButton>
+                </ListItem>
+                <ListItem disablePadding>
+                  <ListItemButton href='/ticket/solicitud-ticket'>
+                    <ListItemIcon>
+                      <PendingActionsOutlinedIcon />
+                    </ListItemIcon>
+                    <ListItemText primary="Solicitud ticket" />
+                  </ListItemButton>
+                </ListItem>
+                <Divider /> 
+                <div className='tickets'>
+                <ListItem disablePadding>
+                  <ListItemButton href='/categorias'>
+                    <ListItemIcon>
+                      <CategoryOutlinedIcon />
+                    </ListItemIcon>
+                    <ListItemText primary="Categorías" />
+                  </ListItemButton>
+                </ListItem>
+                </div>
+                <Divider /> 
+                <div className='tickets'>
+                <ListItem disablePadding>
+                  <ListItemButton href='/Dashboard'>
+                    <ListItemIcon>
+                      <LeaderboardOutlinedIcon />
+                    </ListItemIcon>
+                    <ListItemText primary="Dashboard" />
+                  </ListItemButton>
+                </ListItem>
+                </div>
+                <Divider />
+                <div className='tickets'>
+                <ListItem disablePadding>
+                  <ListItemButton>
+                    <ListItemIcon>
+                      <SettingsOutlinedIcon />
+                    </ListItemIcon>
+                    <ListItemText primary="Configuración" />
+                  </ListItemButton>
+                </ListItem>
+                </div>
+                <Divider />
+              </List>
+          </Drawer>
+          <div className='icon'>
+            <IconButton
+              color="inherit"
+              aria-label="open drawer"
+              onClick={handleDrawerOpen}
+              edge="start"
+              sx={{
+                // marginRight: 5,
+                ...(open && { display: 'none' }),
+              }}
+            >
+              <MenuIcon />
+            </IconButton>
+          </div> 
+          <div className='container__container'> 
+              {children}
+          </div>
+        </div>  
+      </div>  
   );
 }

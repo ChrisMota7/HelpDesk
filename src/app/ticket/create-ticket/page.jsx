@@ -1,14 +1,26 @@
 'use client'
 import * as React from 'react';
+import './Create.scss'
 import { Card, CardContent } from "@mui/material"
 import {TextField, FormControl, InputLabel, Select, MenuItem} from "@mui/material"
-import Box from "@mui/material"
-
+import Breadcrumbs from '@mui/material/Breadcrumbs';
+import Link from '@mui/material/Link';
+import Typography from '@mui/material/Typography';
 
 export default function Nuevo({children}) {
-  const [name, setName] = React.useState('Cat in the Hat');
     return (
-      <div>
+      <div className='header'>
+        <div className='header__title'>
+          <h1>Nuevo Ticket</h1>
+        </div>
+        <div>
+          <Breadcrumbs aria-label="breadcrumb">
+            <Link underline="hover" color="inherit" href="/ticket">
+              Tickets
+            </Link>
+            <Typography color="text.primary">Nuevo</Typography>
+          </Breadcrumbs>
+        </div>
         <Card>
           <CardContent>
             Información básica
@@ -50,7 +62,6 @@ export default function Nuevo({children}) {
         <Card>
           <CardContent>
             Evidencia
-           
           </CardContent>
         </Card>
       </div>
