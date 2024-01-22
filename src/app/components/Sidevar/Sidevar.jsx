@@ -27,6 +27,10 @@ import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
 import AddOutlinedIcon from '@mui/icons-material/AddOutlined';
 import CategoryOutlinedIcon from '@mui/icons-material/CategoryOutlined';
 
+import { useRouter } from 'next/navigation';
+
+import Profile from '../Profile/Profile'
+
 const drawerWidth = 240;
 
 const openedMixin = (theme) => ({
@@ -95,6 +99,10 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
 );
 
 export default function Sidevar({children}) {
+  
+  const router = useRouter()
+
+
   const theme = useTheme();
   const [open, setOpen] = useState(true);
 
@@ -137,7 +145,7 @@ export default function Sidevar({children}) {
               <div className='tickets'>
                 <ListItem disablePadding>
                   
-                  <ListItemButton href='/ticket'>
+                  <ListItemButton onClick={() => router.push('/ticket')}>
                     <ListItemIcon>
                       <AssignmentOutlinedIcon />
                     </ListItemIcon>
@@ -147,7 +155,7 @@ export default function Sidevar({children}) {
                 </div>
 
                 <ListItem disablePadding>
-                  <ListItemButton href='/ticket/create-ticket'>
+                  <ListItemButton onClick={() => router.push('/ticket/create-ticket')}>
                     <ListItemIcon>
                       <AddOutlinedIcon />
                     </ListItemIcon>
@@ -155,7 +163,7 @@ export default function Sidevar({children}) {
                   </ListItemButton>
                 </ListItem>
                 <ListItem disablePadding>
-                  <ListItemButton href='/ticket/solicitud-ticket'>
+                  <ListItemButton onClick={() => router.push('/ticket/solicitud-ticket')}>
                     <ListItemIcon>
                       <PendingActionsOutlinedIcon />
                     </ListItemIcon>
@@ -165,7 +173,7 @@ export default function Sidevar({children}) {
                 <Divider /> 
                 <div className='tickets'>
                 <ListItem disablePadding>
-                  <ListItemButton href='/categorias'>
+                  <ListItemButton onClick={() => router.push('/categorias')}>
                     <ListItemIcon>
                       <CategoryOutlinedIcon />
                     </ListItemIcon>
@@ -176,7 +184,7 @@ export default function Sidevar({children}) {
                 <Divider /> 
                 <div className='tickets'>
                 <ListItem disablePadding>
-                  <ListItemButton href='/Dashboard'>
+                  <ListItemButton onClick={() => router.push('/Dashboard')}>
                     <ListItemIcon>
                       <LeaderboardOutlinedIcon />
                     </ListItemIcon>
@@ -187,7 +195,7 @@ export default function Sidevar({children}) {
                 <Divider />
                 <div className='tickets'>
                 <ListItem disablePadding>
-                  <ListItemButton>
+                  <ListItemButton onClick={() => router.push('/configuracion')}>
                     <ListItemIcon>
                       <SettingsOutlinedIcon />
                     </ListItemIcon>
@@ -213,6 +221,8 @@ export default function Sidevar({children}) {
             </IconButton>
           </div> 
           <div className='container__container'> 
+          <Profile/>
+
               {children}
           </div>
         </div>  

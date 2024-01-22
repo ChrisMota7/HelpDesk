@@ -1,0 +1,31 @@
+.header{
+    padding-left: 100px;
+    
+    // background-color: red;
+    align-items: center;
+    justify-content:center;
+    position: relative;
+    // border: 5px solid #000;
+    &__title{
+        margin-top: 40px;
+    }
+    &__nav{
+        margin-top: 35px;
+    }
+}
+
+.content{
+    // width: 1300px;
+    margin-top: 30px;
+    &__division{
+        padding: 30px;
+        display: flex;
+        flex-direction: row;
+        // border: 0.5px solid #000;
+
+    }
+    &__button{
+        margin-left: 1182px;
+        
+    }
+}

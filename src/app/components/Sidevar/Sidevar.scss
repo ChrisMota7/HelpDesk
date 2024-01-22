@@ -8,17 +8,16 @@
         align-items: center;
     }
     &__container{
+        box-sizing: border-box;
         padding: 50px;
-        border: 5px solid #ad0000;
-        // background-color: red;
+        // border: 5px solid #ad0000;
+        width: auto;
+        height: 100%;
+
     }
 }
 
 .icon{
     position: absolute;
     margin-left: -50px;
-}
-
-.tickets{
-    background-color: rgb(99, 98, 170);
 }

@@ -9,14 +9,7 @@ const columns = [
   { field: 'Cliente', headerName: 'CLIENTE', width: 250 },
   { field: 'Correo', headerName: 'CORREO', width: 350 },
   { field: 'STATUS', headerName: 'ESTATUS', width: 150 },
-  { field: 'ACCIONES', headerName: 'ACCIONES', width: 120 }, 
-  // {
-  //   field: 'ACCIONES',
-  //   headerName: 'ACCIONES',
-  //   width: 100,
-  //   valueGetter: (params) =>
-  //     `${params.row.ASIGNADO || ''} ${params.row.STATUS || ''}`,
-  // },
+  { field: 'ACCIONES', headerName: 'ACCIONES', width: 120 },
 ];
 
 const rows = [
@@ -30,7 +23,7 @@ const rows = [
 export default function Table() {
   return (
     // backgroundColor:'white', marginBottom:100, marginLeft:50, marginRight:50, marginTop:100
-    <div style={{ height:500, width:1300}}>
+    <div style={{ height:500, width:1280, padding:20 }}>
       
         <DataGrid
           rows={rows}

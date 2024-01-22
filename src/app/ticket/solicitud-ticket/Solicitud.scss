@@ -15,14 +15,15 @@
 .content{
     // width: 1300px;
     margin-top: 30px;
-    &__text{
-        padding-top: 30px;
-        padding-left: 30px;
+    &__card{
+        background-color: aqua;
     }
     &__division{
         padding: 30px;
         display: flex;
         flex-direction: row;
+        // border: 0.5px solid #000;
+
     }
     &__label{
         width: 626px;
@@ -34,19 +35,12 @@
             // background: #9c3636;
         }
     }
-    &__Descripcion{
-        width: 1245px;
-        margin-left: 20px;
-        padding-bottom: 30px;
-    }
-    &__categoria{
-        padding: 30px;
-    }
-    &__evidencia{
-        padding: 30px;
-    }
     &__button{
-        margin-left: 1100px;
-        padding: 30px;
+        margin-left: 1090px;
+        
+    }
+    &__divisor{
+        padding: 20px;
+        // border: 1px solid #000;  
     }
 }

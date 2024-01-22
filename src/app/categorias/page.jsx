@@ -1,4 +1,5 @@
 'use client'
+import './categorias.scss'
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Breadcrumbs from '@mui/material/Breadcrumbs';
@@ -10,21 +11,30 @@ import { Button } from '@mui/material';
 
 export default function Categorias({children}) {
     return (
-      <div>
-        <div>
-          <h1>Categorias</h1>
+      <div className='header'>
+        <div className='header__title'>
+          <h1>Categorías</h1>
         </div>
-        <div>
-        <Breadcrumbs aria-label="breadcrumb">
-            <Typography color="text.primary">Categorias</Typography>
+        <div className='header__nav'>
+          <Breadcrumbs aria-label="breadcrumb">
+            <Link underline="hover" color="inherit" onClick={() => router.push('/ticket')}>
+              Tickets
+            </Link>
+            <Typography color="text.primary">Solicitudes</Typography>
           </Breadcrumbs>
         </div>
-        <Card>
-          <CardContent>
-            <Button variant="contained">Nueva Categoría</Button>
-            <Table></Table>
-          </CardContent>
-        </Card>
+        <div className='content'>
+          <Card>
+            <div className='content__divisor'>
+            <CardContent className='content__table'>
+              <div className='content__button'>
+                <Button variant="contained" onClick={() => router.push('/ticket/create-ticket')}>Ver Dashboard</Button>
+              </div>
+              <Table></Table>
+            </CardContent>
+            </div>
+          </Card>
+        </div>
       </div>
     )
   }
