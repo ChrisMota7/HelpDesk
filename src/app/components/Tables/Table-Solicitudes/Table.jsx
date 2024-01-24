@@ -1,6 +1,8 @@
 'use client'
 import * as React from 'react';
 import { DataGrid } from '@mui/x-data-grid';
+import IconButton from '@mui/material/IconButton';
+import DeleteIcon from '@mui/icons-material/Delete';
 
 
 const columns = [
@@ -13,7 +15,8 @@ const columns = [
 ];
 
 const rows = [
-  { id: 1, Descripcion: 'Infraestructura', Cliente: 'HDI', Correo: 'AbrahamMisael@KSP.com.mx', STATUS: 'ACTIVE', ACCIONES: ''},
+  { id: 1, Descripcion: 'Infraestructura', Cliente: 'HDI', Correo: 'AbrahamMisael@KSP.com.mx', STATUS: 'ACTIVE', ACCIONES: <IconButton aria-label="delete" size="small"> <DeleteIcon fontSize="small" />
+</IconButton>},
   { id: 2, Descripcion: 'Infraestructura', Cliente: 'HDI', Correo: 'AbrahamMisael@KSP.com.mx', STATUS: 'BLOCK',  ACCIONES: '' },
   { id: 3, Descripcion: 'Infraestructura', Cliente: 'HDI', Correo: 'AbrahamMisael@KSP.com.mx', STATUS: 'ACTIVE', ACCIONES: '' },
   { id: 4, Descripcion: 'Infraestructura', Cliente: 'HDI', Correo: 'AbrahamMisael@KSP.com.mx', STATUS: 'BLOCK',  ACCIONES: '' },

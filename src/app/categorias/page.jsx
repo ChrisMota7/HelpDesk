@@ -5,7 +5,7 @@ import CardContent from '@mui/material/CardContent';
 import Breadcrumbs from '@mui/material/Breadcrumbs';
 import Link from '@mui/material/Link';
 import Typography from '@mui/material/Typography';
-import Table from '../components/Table-Categorias/Table'
+import Table from '../components/Tables/Table-Categorias/Table'
 import { Button } from '@mui/material';
 
 

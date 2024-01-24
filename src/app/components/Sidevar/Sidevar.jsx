@@ -27,6 +27,8 @@ import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
 import AddOutlinedIcon from '@mui/icons-material/AddOutlined';
 import CategoryOutlinedIcon from '@mui/icons-material/CategoryOutlined';
 
+import Tooltip from '@mui/material/Tooltip';
+
 import { useRouter } from 'next/navigation';
 
 import Profile from '../Profile/Profile'
@@ -147,7 +149,9 @@ export default function Sidevar({children}) {
                   
                   <ListItemButton onClick={() => router.push('/ticket')}>
                     <ListItemIcon>
-                      <AssignmentOutlinedIcon />
+                    <Tooltip title="Tickets" placement="right-start">
+                      <LeaderboardOutlinedIcon />
+                    </Tooltip>
                     </ListItemIcon>
                     <ListItemText primary="Tickets"  />
                   </ListItemButton>
@@ -157,7 +161,9 @@ export default function Sidevar({children}) {
                 <ListItem disablePadding>
                   <ListItemButton onClick={() => router.push('/ticket/create-ticket')}>
                     <ListItemIcon>
-                      <AddOutlinedIcon />
+                    <Tooltip title="Nuevo Ticket" placement="right-start">
+                      <AssignmentOutlinedIcon />
+                    </Tooltip>
                     </ListItemIcon>
                     <ListItemText primary="Nuevo ticket" />
                   </ListItemButton>
@@ -165,7 +171,9 @@ export default function Sidevar({children}) {
                 <ListItem disablePadding>
                   <ListItemButton onClick={() => router.push('/ticket/solicitud-ticket')}>
                     <ListItemIcon>
+                    <Tooltip title="Solicitudes de Ticket" placement="right-start"> 
                       <PendingActionsOutlinedIcon />
+                    </Tooltip> 
                     </ListItemIcon>
                     <ListItemText primary="Solicitud ticket" />
                   </ListItemButton>
@@ -175,7 +183,9 @@ export default function Sidevar({children}) {
                 <ListItem disablePadding>
                   <ListItemButton onClick={() => router.push('/categorias')}>
                     <ListItemIcon>
+                    <Tooltip title="Categorías" placement="right-start">
                       <CategoryOutlinedIcon />
+                    </Tooltip>
                     </ListItemIcon>
                     <ListItemText primary="Categorías" />
                   </ListItemButton>
@@ -197,7 +207,9 @@ export default function Sidevar({children}) {
                 <ListItem disablePadding>
                   <ListItemButton onClick={() => router.push('/configuracion')}>
                     <ListItemIcon>
+                    <Tooltip title="Configuración" placement="right-start">
                       <SettingsOutlinedIcon />
+                    </Tooltip>  
                     </ListItemIcon>
                     <ListItemText primary="Configuración" />
                   </ListItemButton>

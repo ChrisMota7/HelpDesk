@@ -1,7 +1,46 @@
 .header{
-    // background-color: black;
+    // background-color: red;
+    align-items: center;
+    justify-content:center;
+    position: relative;
+    // border: 5px solid #000;
+    &__title{
+        margin-top: 40px;
+    }
+    &__nav{
+        margin-top: 35px;
+    }
 }
 
-.button{
-    // background-color: black;
+.content{
+    // width: 1300px;
+    margin-top: 30px;
+    &__card{
+        // background-color: aqua;
+    }
+    &__division{
+        padding: 30px;
+        display: flex;
+        flex-direction: row;
+        // border: 0.5px solid #000;
+
+    }
+    &__label{
+        width: 626px;
+        padding: 5px;
+        // background: #b78787;
+        &__select{
+            width: 626px;
+            padding: 5px;
+            // background: #9c3636;
+        }
+    }
+    &__button{
+        margin-left: 1090px;
+        
+    }
+    &__divisor{
+        padding: 20px;
+        // border: 1px solid #000;  
+    }
 }

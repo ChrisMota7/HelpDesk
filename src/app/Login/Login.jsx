@@ -47,10 +47,8 @@ export default function SignIn() {
                 width={100}
                 height={100}
               />
-              <Typography component="h1" variant="h5">
-                <h2>HELP DESK</h2>
-                <h3>Inicio de sesión</h3>
-              </Typography>
+                <h1>HELP DESK</h1> 
+                <h2>Inicio de sesión</h2>
               <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
                 <TextField
                   margin="normal"

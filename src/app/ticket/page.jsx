@@ -2,7 +2,7 @@
 import './ticket.scss'
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
-import Table from '../components/Table-Solicitudes/Table'
+import Table from '../components/Tables/Table-Solicitudes/Table'
 import Button from '@mui/material/Button';
 import * as React from 'react';
 import InputLabel from '@mui/material/InputLabel';
@@ -12,71 +12,55 @@ import Select from '@mui/material/Select';
 
 import Breadcrumbs from '@mui/material/Breadcrumbs';
 import Link from '@mui/material/Link';
-import Typography from '@mui/material/Typography';
+import { Typography, TextField } from '@mui/material';
+import { useRouter } from 'next/navigation';
 
 export default function ticket({children}) {
-    return (
+  const router = useRouter()
+
+  return (
       <div className='header'>
-        <div>
-          <h1>Tickets</h1>
-        </div>
-        <div>
-          <Breadcrumbs aria-label="breadcrumb">
-            <Typography color="text.primary">Tickets</Typography>
-          </Breadcrumbs>
-        </div>
+      <div className='header__title'>
+        <h1>Tickets</h1>
+      </div>
+      <div className='header__nav'>
+        <Breadcrumbs aria-label="breadcrumb">
+          <Typography color="text.primary">Tickets</Typography>
+        </Breadcrumbs>
+      </div>
+      <div className='content'>
         <Card>
-          <CardContent>
-            <FormControl fullWidth>
-              <InputLabel id="demo-simple-select-label">Estado</InputLabel>
-                <Select
-                  sx={{ width:500 }}
-                  labelId="demo-simple-select-label"
-                  id="demo-simple-select"
+        <div className='content__division'> 
+            <div className='content__label'>
+              <TextField  className='content__label' id="outlined-basic" label="ID, Nombre, Correo, Fecha" />    
+            </div>
+            <div className='content__label__select'>
+              <FormControl className='content__label__select'>
+                <InputLabel id="select-label">Estado</InputLabel>
+                <Select 
+                  labelId="select-label"
+                  id="select"
                   label="Estado"
-                  >
-                  <MenuItem >Activo</MenuItem>
-                  <MenuItem >Inactivo</MenuItem>
+                >
+                <MenuItem >Activo</MenuItem>
+                <MenuItem >Inactivo</MenuItem>
                 </Select>
-            </FormControl>
-            <FormControl>
-                  <InputLabel id="demo-simple-select-label">ID, Nombre, Correo</InputLabel>
-                  <Select
-                  sx={{ width:500 }}
-                  labelId="demo-simple-select-label"
-                  id="demo-simple-select"
-                  label="ID, Nombre, Correo"
-                  >
-                    <MenuItem >Borrar</MenuItem>
-                    </Select>  
-            </FormControl>                
-          </CardContent>
-       </Card>
-        <br></br>
-        <Card>
-          <CardContent className='header__content__table'>
-            <header class="flex flex--space-between">
-              <FormControl fullWidth>
-                <InputLabel sx={{ width:250 }} id="demo-simple-select-label">Acciones</InputLabel>
-                  <Select
-                    sx={{ width:250 }}
-                    labelId="demo-simple-select-label"
-                    id="demo-simple-select"
-                    label="Acciones"
-                  >
-                  <MenuItem >Borrar</MenuItem>
-                  </Select>
               </FormControl>
-                  
-              <Button className='button' variant="contained">Nuevo Ticket</Button>
-            </header>
-              
-            <br />
+            </div>
+        </div>
+        </Card>
+            <br></br>
+        <Card>
+          <div className='content__divisor'>
+          <CardContent className='content__table'>
+            <div className='content__button'>
+              <Button variant="contained" onClick={() => router.push('/ticket/create-ticket')}>Nuevo Ticket</Button>
+            </div>
             <Table></Table>
           </CardContent>
+          </div>
         </Card>
-        <br />
-        Tickets page Home
       </div>
+    </div>
     )
   }

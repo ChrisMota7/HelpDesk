@@ -6,7 +6,7 @@ import Stack from '@mui/material/Stack';
 export default function Profile() {
   return (
     <Stack className='avatar'>
-      <Avatar alt="Remy Sharp" src="user.jpg" />
+      <Avatar src="user.png"/>
     </Stack>
   );
 }
