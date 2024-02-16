@@ -10,7 +10,7 @@ import { useRouter } from 'next/navigation';
 import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 import { styled } from '@mui/material/styles';
 
-export default function Nuevo({children}) {
+export default function Nuevo() {
   const router = useRouter()
 
   const VisuallyHiddenInput = styled('input')({
@@ -41,48 +41,47 @@ export default function Nuevo({children}) {
         <div className='content'>
           <Card className='content__card'>
             <h4 className='content__text'>Información básica</h4>
-            <div className='content__division'> 
-                <div className='content__label'>
-                  <TextField  className='content__label' id="outlined-basic" label="Asunto" />    
+              <div className='content__column'>
+                <div className='content__division'> 
+                  <div className='content__label'>
+                    <TextField  className='content__label' id="outlined-basic" label="Asunto" />    
+                  </div>
+                  <div fullWidth className='content__label__select'>
+                    <FormControl fullWidth className='content__label__select'>
+                      <InputLabel id="select-label">Categoría</InputLabel>
+                      <Select 
+                        labelId="select-label"
+                        id="select"
+                        label="Estado"
+                      >
+                      <MenuItem >Hardware</MenuItem>
+                      <MenuItem >Software</MenuItem>
+                      </Select>
+                    </FormControl>
+                  </div>
                 </div>
-                <div className='content__label__select'>
-                  <FormControl className='content__label__select'>
-                    <InputLabel id="select-label">Categoría</InputLabel>
+                  <div  className='content__tipoProblema'>
+                  <FormControl fullWidth className='content__tipoProblema'>
+                    <InputLabel  id="select-label">Tipo de problema        </InputLabel>
                     <Select 
                       labelId="select-label"
                       id="select"
-                      label="Estado"
+                      label="Tipo de problema"
                     >
-                    <MenuItem >Hardware</MenuItem>
-                    <MenuItem >Software</MenuItem>
+                    <MenuItem >Gestión de usuarios</MenuItem>
+                    <MenuItem >Seguridad</MenuItem>
+                    <MenuItem >General</MenuItem>
+                    <MenuItem >Administrar cuentas</MenuItem>
+                    <MenuItem >Administrar equipos</MenuItem>
                     </Select>
                   </FormControl>
                 </div>
-            </div>
-            <div className='content__Descripcion'>
-              <TextField  className='content__Descripcion' id="outlined-basic" label="Descripción del problema" />
-            </div>
-          </Card>
-          <Card>
-          <h4 className='content__text'>Filtros</h4>
-            <div className='content__divisor'>
-              <div  className='content__categoria'>
-                <FormControl fullWidth className='content__label__select'>
-                  <InputLabel  id="select-label">Tipo de problema</InputLabel>
-                  <Select 
-                    labelId="select-label"
-                    id="select"
-                    label="Tipo de problema"
-                  >
-                  <MenuItem >Gestión de usuarios</MenuItem>
-                  <MenuItem >Seguridad</MenuItem>
-                  <MenuItem >General</MenuItem>
-                  <MenuItem >Administrar cuentas</MenuItem>
-                  <MenuItem >Administrar equipos</MenuItem>
-                  </Select>
-                </FormControl>
+                <div className='content__Descripcion'>
+                  <TextField   className='content__Descripcion' id="outlined-basic" label="Descripción del problema"/>
+                </div>
               </div>
-            </div>
+            
+            
           </Card>
           <Card>
             <div className='content__evidencia'>

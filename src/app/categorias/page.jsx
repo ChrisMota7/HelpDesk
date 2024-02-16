@@ -9,7 +9,7 @@ import Table from '../components/Tables/Table-Categorias/Table'
 import { Button } from '@mui/material';
 
 
-export default function Categorias({children}) {
+export default function Categorias() {
     return (
       <div className='header'>
         <div className='header__title'>
@@ -17,6 +17,9 @@ export default function Categorias({children}) {
         </div>
         <div className='header__nav'>
           <Breadcrumbs aria-label="breadcrumb">
+            <Link underline="hover" color="inherit" onClick={() => router.push('/ticket')}>
+              HelpDesk
+            </Link>
             <Link underline="hover" color="inherit" onClick={() => router.push('/ticket')}>
               Tickets
             </Link>
@@ -28,7 +31,7 @@ export default function Categorias({children}) {
             <div className='content__divisor'>
             <CardContent className='content__table'>
               <div className='content__button'>
-                <Button variant="contained" onClick={() => router.push('/ticket/create-ticket')}>Ver Dashboard</Button>
+                <Button variant="contained" onClick={() => router.push('/ticket/create-ticket')}>Nueva categoría</Button>
               </div>
               <Table></Table>
             </CardContent>

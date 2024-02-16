@@ -38,12 +38,11 @@ export default function verTicket (){
                 <h1 className='header__title__problem'>Laptop ya no carga</h1>
             </div>
             <div className='header__nav'>
-                <Breadcrumbs aria-label="breadcrumb">
-                    <Link underline="hover" color="inherit" onClick={() => router.push('/ticket')}>
-                        Tickets
-                    </Link>
-                    <Typography color="text.primary">Ver ticket</Typography>
-                </Breadcrumbs>
+            <Breadcrumbs aria-label="breadcrumb">
+                <Typography color="text.primary">HelpDesk</Typography>
+                <Typography color="text.primary">Tickets</Typography>
+                <Typography color="text.primary">Ver ticket</Typography>
+            </Breadcrumbs>
             </div>
             <div className='content__button'>
                 <Button variant="contained" onClick={() => router.push('/ticket/create-ticket')}>Finalizar Ticket</Button>
@@ -51,7 +50,7 @@ export default function verTicket (){
             <div className='content'>
                 <Card>
                     <div className='content__date'> 
-                        <Typography color="text.primary">Creado en: </Typography>
+                        <Typography color="text">Creado en: </Typography>
                         <Typography color="text.primary">Respuestas: </Typography>
                         <Typography color="text.primary">Ultima respuesta: </Typography>
                     </div>

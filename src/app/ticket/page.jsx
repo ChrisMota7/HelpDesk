@@ -25,7 +25,11 @@ export default function ticket({children}) {
       </div>
       <div className='header__nav'>
         <Breadcrumbs aria-label="breadcrumb">
-          <Typography color="text.primary">Tickets</Typography>
+          <Typography color="text.primary">HelpDesk</Typography>
+          <Link underline="hover" color="inherit" onClick={() => router.push('/ticket')}>
+            Tickets
+          </Link>
+          <Typography color="text.primary">Ver ticket</Typography>
         </Breadcrumbs>
       </div>
       <div className='content'>

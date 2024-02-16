@@ -1,5 +1,6 @@
 import './globals.css'
 import Sidevar from './components/Sidevar/Sidevar'
+import Menu from './components/Menu/Menu'
 
 
 export const metadata = {
@@ -12,7 +13,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <title>HELP-DESK</title>
       <body>
-        <Sidevar children={children}/>
+        <Menu children={children}/>
       </body>
     </html>
   )

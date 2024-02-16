@@ -1,9 +1,11 @@
 'use client'
-import './Sidevar.scss'
-import React, { useState } from 'react';
+
+import * as React from 'react';
 import { styled, useTheme } from '@mui/material/styles';
+import Box from '@mui/material/Box';
 import MuiDrawer from '@mui/material/Drawer';
 import MuiAppBar from '@mui/material/AppBar';
+import Toolbar from '@mui/material/Toolbar';
 import List from '@mui/material/List';
 import CssBaseline from '@mui/material/CssBaseline';
 import Divider from '@mui/material/Divider';
@@ -19,7 +21,6 @@ import ListItemText from '@mui/material/ListItemText';
 import AssignmentOutlinedIcon from '@mui/icons-material/AssignmentOutlined';
 import LeaderboardOutlinedIcon from '@mui/icons-material/LeaderboardOutlined';
 import Image from "next/image";
-import PendingActionsOutlinedIcon from '@mui/icons-material/PendingActionsOutlined';
 import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
 import CategoryOutlinedIcon from '@mui/icons-material/CategoryOutlined';
 
@@ -96,13 +97,12 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
   }),
 );
 
-export default function Sidevar({children}) {
-  
+export default function Menu({children}) {
+
   const router = useRouter()
-
-
+    
   const theme = useTheme();
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = React.useState(false);
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -113,33 +113,51 @@ export default function Sidevar({children}) {
   };
 
   return (
-      <div className='container' >
-        <CssBaseline />
-        <div>
-          <Drawer variant="permanent" open={open}>
-            <div className='container__titleMenu'>
-              <DrawerHeader>
-                <IconButton onClick={handleDrawerClose}>
-                  {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
-                </IconButton>
-              </DrawerHeader>
-              
-                <ListItem disablePadding>
-
-                  <ListItemIcon>
-                    <Image
-                    src="/LogoNegro.png"
-                    alt="Image Componente"
-                    className='Image'
-                    width={63}
-                    height={63}
-                    />
-                  </ListItemIcon>
-                    <h2>HELP-DESK</h2>
-                </ListItem>
-            </div>
-              <Divider />
-              <List>
+    <Box sx={{ display: 'flex', backgroundColor:'#ffffffd4'}}>
+      <CssBaseline />
+      <AppBar position="fixed" open={open}>
+        <Toolbar>
+          <IconButton
+            color="inherit"
+            aria-label="open drawer"
+            onClick={handleDrawerOpen}
+            edge="start"
+            sx={{
+              marginRight: 5,
+              ...(open && { display: 'none' }),
+            }}
+          >
+            <MenuIcon />
+          </IconButton>
+          <ListItem disablePadding>
+            <ListItemIcon>
+            <Image
+            src="/LogoNegro.png"
+            alt="Image Componente"
+            className='Image'
+            width={63}
+            height={63}
+            />
+            </ListItemIcon>
+            <h2>HELP-DESK</h2>
+          </ListItem>
+          <Profile></Profile>
+          {/* <Typography variant="h6" noWrap component="div">
+            HELP - DESK
+          </Typography> */}
+          
+        </Toolbar>
+      </AppBar>
+      <Drawer variant="permanent" open={open}>
+        <DrawerHeader>
+        <IconButton onClick={handleDrawerClose}>
+            {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
+        </IconButton>
+          
+        </DrawerHeader>
+        
+        <Divider />
+        <List>
               <div className='tickets'>
                 <ListItem disablePadding>
                   
@@ -164,7 +182,7 @@ export default function Sidevar({children}) {
                     <ListItemText primary="Nuevo ticket" />
                   </ListItemButton>
                 </ListItem>
-                <ListItem disablePadding>
+                {/* <ListItem disablePadding>
                   <ListItemButton onClick={() => router.push('/ticket/solicitud-ticket')}>
                     <ListItemIcon>
                     <Tooltip title="Solicitudes de Ticket" placement="right-start"> 
@@ -173,7 +191,7 @@ export default function Sidevar({children}) {
                     </ListItemIcon>
                     <ListItemText primary="Solicitud ticket" />
                   </ListItemButton>
-                </ListItem>
+                </ListItem> */}
                 <Divider /> 
                 <div className='tickets'>
                 <ListItem disablePadding>
@@ -192,7 +210,9 @@ export default function Sidevar({children}) {
                 <ListItem disablePadding>
                   <ListItemButton onClick={() => router.push('/Dashboard')}>
                     <ListItemIcon>
-                      <LeaderboardOutlinedIcon />
+                      <Tooltip title="Dashboard" placement="right-start">
+                        <LeaderboardOutlinedIcon />
+                      </Tooltip>  
                     </ListItemIcon>
                     <ListItemText primary="Dashboard" />
                   </ListItemButton>
@@ -213,27 +233,12 @@ export default function Sidevar({children}) {
                 </div>
                 <Divider />
               </List>
-          </Drawer>
-          <div className='icon'>
-            <IconButton
-              color="inherit"
-              aria-label="open drawer"
-              onClick={handleDrawerOpen}
-              edge="start"
-              sx={{
-                // marginRight: 5,
-                ...(open && { display: 'none' }),
-              }}
-            >
-              <MenuIcon />
-            </IconButton>
-          </div> 
-          <div className='container__container'> 
-          <Profile/>
-
-              {children}
-          </div>
-        </div>  
-      </div>  
+                    
+      </Drawer>
+      <Box div component="main" sx={{ flexGrow: 1, p: 3 }}>
+        <DrawerHeader/>
+        {children}
+      </Box>
+    </Box>
   );
 }

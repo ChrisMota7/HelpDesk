@@ -1,19 +1,20 @@
 'use client'
-import './dashboard.scss'
 import Breadcrumbs from '@mui/material/Breadcrumbs';
 import Link from '@mui/material/Link';
 import Typography from '@mui/material/Typography';
 
-export default function Dashboard() {
+export default function configuracion() {
     return (
         <div className='header'>
             <div className='header__title'>
-                <h1>Dashboard</h1>
+                <h1>Configuración</h1>
             </div>
             <div className='header__nav'>
                 <Breadcrumbs aria-label="breadcrumb">
-                <Typography color="text.primary">HelpDesk</Typography>
-                <Typography color="text.primary">Dashboard</Typography>
+                    <Link underline="hover" color="inherit" onClick={() => router.push('/ticket')}>
+                        Tickets
+                    </Link>
+                    <Typography color="text.primary">Categorías</Typography>
                 </Breadcrumbs>
             </div>
         </div>

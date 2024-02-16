@@ -1,11 +1,11 @@
 .header{
     // background-color: red;
-    align-items: center;
-    justify-content:center;
+    // align-items: center;
+    // justify-content:center;
     // position: relative;
     // border: 5px solid #000;
     &__title{
-        margin-top: 40px;
+        margin-top: 10px;
     }
     &__nav{
         margin-top: 35px;
@@ -15,36 +15,44 @@
 .content{
     // width: 1300px;
     margin-top: 30px;
+    align-items: center;
     &__text{
         padding-top: 30px;
         padding-left: 30px;
+    }
+    &__column{
+        flex-direction: column;
     }
     &__division{
         padding: 30px;
         display: flex;
         flex-direction: row;
+        // flex-grow: 3;
     }
     &__label{
         width: 626px;
         padding: 5px;
-        // background: #b78787;
         &__select{
             width: 626px;
             padding: 5px;
             // background: #9c3636;
         }
     }
+    &__tipoProblema{
+        padding: 5px;
+        padding: 5px;
+        margin-left: 15px;
+        width: 1253px;
+        // background: #b78787;
+    }
     &__Descripcion{
         width: 1245px;
         margin-left: 20px;
         padding-bottom: 30px;
-    }
-    &__categoria{
-        padding: 30px;
-        width: 1245px;
+        padding-top: 10px;
     }
     &__evidencia{
-        padding: 20px;
+        padding: 30px;
 
         &__button{
             display: flex;
