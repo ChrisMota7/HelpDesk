@@ -1,5 +1,4 @@
 'use client'
-
 import * as React from 'react';
 import { styled, useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
@@ -113,7 +112,7 @@ export default function Menu({children}) {
   };
 
   return (
-    <Box sx={{ display: 'flex', backgroundColor:'#ffffffd4'}}>
+    <Box sx={{ display: 'flex'}}>
       <CssBaseline />
       <AppBar position="fixed" open={open}>
         <Toolbar>
@@ -142,9 +141,6 @@ export default function Menu({children}) {
             <h2>HELP-DESK</h2>
           </ListItem>
           <Profile></Profile>
-          {/* <Typography variant="h6" noWrap component="div">
-            HELP - DESK
-          </Typography> */}
           
         </Toolbar>
       </AppBar>
@@ -153,7 +149,6 @@ export default function Menu({children}) {
         <IconButton onClick={handleDrawerClose}>
             {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
         </IconButton>
-          
         </DrawerHeader>
         
         <Divider />
@@ -232,8 +227,7 @@ export default function Menu({children}) {
                 </ListItem>
                 </div>
                 <Divider />
-              </List>
-                    
+              </List>     
       </Drawer>
       <Box div component="main" sx={{ flexGrow: 1, p: 3 }}>
         <DrawerHeader/>
